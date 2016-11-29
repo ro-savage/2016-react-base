@@ -35,6 +35,7 @@
     "extends": "airbnb",
     "rules": {
       "semi" : [2, "never"],
+      "arrow-body-style": [0, "as-needed"],
       "no-use-before-define": 0,
       "react/jsx-filename-extension": 0,
       "import/extensions": [2, { "js": "never" }]
