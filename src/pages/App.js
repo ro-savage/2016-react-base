@@ -1,19 +1,29 @@
 import React from 'react'
-import { Link, IndexLink } from 'react-router'
 
-class App extends React.Component {
+import './App.css'
+import Header from './layout/header/Header'
+import Menu from './layout/menu/Menu'
+
+// Example of class
+class App extends React.Component { //eslint-disable-line
   render() {
     return (
-      <div>
-        {this.props.children}
-        <div style={{textAlign: 'center'}}>
-          <IndexLink to="/">Index</IndexLink>&nbsp;|&nbsp;
-          <Link to="home">Home</Link>&nbsp;|&nbsp;
-          <Link to="list">List</Link>
+      <div className="App">
+        <Header title={this.props.routes[1].title} />
+        <div className="Content">
+          {this.props.children}
         </div>
+        <Menu />
       </div>
-      )
+    )
   }
 }
 
-export default App;
+App.propTypes = {
+  children: React.PropTypes.element,
+  routes: React.PropTypes.arrayOf(
+    React.PropTypes.object,
+  ),
+}
+
+export default App
