@@ -43,11 +43,8 @@ module.exports = {
     // the line below with these two lines if you prefer the stock client:
     // require.resolve('webpack-dev-server/client') + '?/',
     // require.resolve('webpack/hot/dev-server'),
-    // require.resolve('webpack-hot-middleware/client'),
-    // require.resolve('react-dev-utils/webpackHotDevClient'),
-    require.resolve('webpack-dev-server/client') + '?/',
-    require.resolve('webpack/hot/dev-server'),
-    require.resolve('react-hot-loader/patch'),
+    'react-hot-loader/patch',
+    require.resolve('react-dev-utils/webpackHotDevClient'),
     // We ship a few polyfills by default:
     require.resolve('./polyfills'),
     // Finally, this is your app's code:
@@ -111,7 +108,11 @@ module.exports = {
           // https://github.com/facebookincubator/create-react-app/issues/483
           cacheDirectory: findCacheDir({
             name: 'react-scripts'
-          })
+          }),
+          // Add hot Reloading
+          plugins: [
+            'react-hot-loader/babel'
+          ]
         }
       },
       // "postcss" loader applies autoprefixer to our CSS.
