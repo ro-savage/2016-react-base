@@ -1,9 +1,9 @@
 import React from 'react'
 
-import './Home.css'
+import styles from './Home.css'
 
 const Home = () =>
-  <p className="app-intro">
+  <p className={styles.appIntro}>
     API Preview is going to go here
   </p>
 

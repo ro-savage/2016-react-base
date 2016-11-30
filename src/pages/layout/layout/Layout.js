@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './Layout.css'
+import styles from './Layout.css'
 import Header from '../header/Header'
 import Menu from '../menu/Menu'
 
@@ -8,9 +8,9 @@ import Menu from '../menu/Menu'
 class Layout extends React.Component { //eslint-disable-line
   render() {
     return (
-      <div className="app">
+      <div className={styles.app}>
         <Header title={this.props.routes[1].title} />
-        <div className="content">
+        <div className={styles.content}>
           {this.props.children}
         </div>
         <Menu />

@@ -1,11 +1,11 @@
 import React from 'react'
 
 import logo from './logo.svg'
-import './Header.css'
+import styles from './Header.css'
 
 const Header = props => (
-  <div className="app-header">
-    <img src={logo} className="app-logo" alt="logo" />
+  <div className={styles.appHeader}>
+    <img src={logo} className={styles.appLogo} alt="logo" />
     <h2>Welcome to {props.title}</h2>
   </div>
 )

@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link, IndexLink } from 'react-router'
 
-import './Menu.css'
+import styles from './Menu.css'
 
 const Menu = () => (
-  <div className="menu">
+  <div className={styles.menu}>
     <IndexLink to="/">Home</IndexLink>
     &nbsp;|&nbsp;
     <Link to="list">List</Link>

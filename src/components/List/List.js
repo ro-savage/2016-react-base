@@ -1,10 +1,11 @@
 import React from 'react'
 
-import './List.css'
+import styles from './List.css'
+
 
 const List = (props) => {
   return (
-    <ul className="ListComponent">
+    <ul className={styles.list}>
       {props.items.map(item => (
         <li key={item}>{item}</li>
       ))}
