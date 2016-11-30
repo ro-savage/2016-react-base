@@ -1,8 +1,8 @@
 .examples {
   display: flex;
   justify-content: center;
-}
 
-.example {
-  margin: 0 20px;
+  & .example {
+    margin: 0 20px;
+  }
 }
