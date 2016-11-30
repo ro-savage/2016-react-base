@@ -1,9 +1,15 @@
 import React from 'react'
 
-const Button = props => <button onClick={props.onClick}>{props.text}</button>
+import './Button.css'
+
+const Button = props =>
+  <button className="button" onClick={props.onClick}>
+    {props.text || props.children}
+  </button>
 
 Button.propTypes = {
   text: React.PropTypes.string,
+  children: React.PropTypes.string,
   onClick: React.PropTypes.func,
 }
 

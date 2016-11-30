@@ -4,8 +4,8 @@ import logo from './logo.svg'
 import './Header.css'
 
 const Header = props => (
-  <div className="App-header">
-    <img src={logo} className="App-logo" alt="logo" />
+  <div className="app-header">
+    <img src={logo} className="app-logo" alt="logo" />
     <h2>Welcome to {props.title}</h2>
   </div>
 )

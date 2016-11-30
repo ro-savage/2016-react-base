@@ -3,8 +3,8 @@ import React from 'react'
 import './Home.css'
 
 const Home = () =>
-  <p className="App-intro">
-    To <code>src/App.js</code> and save to reload!
+  <p className="app-intro">
+    API Preview is going to go here
   </p>
 
 export default Home

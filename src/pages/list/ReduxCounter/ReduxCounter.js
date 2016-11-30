@@ -1,12 +1,14 @@
 import React from 'react'
 
+import Button from '../../../components/Button/Button'
+
 const counter = (props) => {
   return (
     <div>
       <span>Counter: {props.counter}</span>
       <br />
-      <button onClick={props.increase}>Up!</button>
-      <button onClick={props.decrease}>Down!</button>
+      <Button onClick={props.increase}>Up!</Button>
+      <Button onClick={props.decrease}>Down!</Button>
     </div>
   )
 }
