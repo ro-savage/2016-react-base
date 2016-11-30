@@ -1,9 +1,8 @@
 import React from 'react'
 
-import Button from '../../components/Button/Button'
-
 import ReactList from './ReactList/ReactList'
-import ReduxList from './ReduxList/ReduxList'
+import ReduxListContainer from './ReduxList/ReduxListContainer'
+import ReduxCounterContainer from './ReduxCounter/ReduxCounterContainer'
 
 const List = () => (
   <div className="ListPage">
@@ -11,8 +10,10 @@ const List = () => (
     <h3>State in React</h3>
     <ReactList />
     <h3>State in Redux</h3>
-    <ReduxList />
-    <Button text="List Button" />
+    <h4>List</h4>
+    <ReduxListContainer />
+    <h4>Counter</h4>
+    <ReduxCounterContainer />
   </div>
 )
 

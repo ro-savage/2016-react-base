@@ -11,9 +11,7 @@ ReactDOM.render(
 )
 
 if (module.hot) {
-  console.log('module.hot')
   module.hot.accept('./pages/App', () => {
-    console.log('accepted module.hot')
     // Have to overwrite the original app with the new hot loading version
     const HotApp = require('./pages/App').default // eslint-disable-line
     ReactDOM.render(

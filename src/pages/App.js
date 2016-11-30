@@ -1,7 +1,11 @@
 import React from 'react'
 import { Router, browserHistory } from 'react-router'
+import { Provider } from 'react-redux'
 
 import routes from './routes'
+import configureStore from '../configureStore'
+
+const store = configureStore()
 
 class App extends React.Component {
   render() {
@@ -9,8 +13,13 @@ class App extends React.Component {
     // By only passing new routes if no routes are founds
     // https://github.com/ReactTraining/react-router/issues/2704#issuecomment-261310093
     if (!this.routes) { this.routes = routes }
+
+    // Provider passes the redux store to the React app
+    // Router providers url routes and browser history (backbutton)
     return (
-      <Router routes={this.routes} history={browserHistory} />
+      <Provider store={store}>
+        <Router routes={this.routes} history={browserHistory} />
+      </Provider>
     )
   }
 }
