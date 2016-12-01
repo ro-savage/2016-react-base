@@ -59,7 +59,8 @@
       "document": false,
       "it": false,
       "describe": false,
-      "expect": false
+      "expect": false,
+      "fetch": false
     }
   },
   "devDependencies": {
