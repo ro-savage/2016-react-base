@@ -1,6 +1,7 @@
 import React from 'react'
 
 import PostListContainer from './posts/PostsList/PostsListContainer'
+import PostInputContainer from './posts/PostInput/PostInputContainer'
 
 const Restful = () => {
   return (
@@ -12,6 +13,8 @@ const Restful = () => {
       <div>
         <h2>Posts</h2>
         <PostListContainer />
+        <br />
+        <PostInputContainer />
       </div>
     </div>
   )

@@ -7,14 +7,14 @@ const PostList = (props) => {
   return (
     <div>
       <List items={props.posts} />
-      <Button onClick={props.dispatchFetchPosts}>Fetch Posts</Button>
+      <Button onClick={props.dispatchFetchPosts}>Fetch posts from server</Button>
     </div>
   )
 }
 
 PostList.propTypes = {
   posts: React.PropTypes.arrayOf(React.PropTypes.string),
-  dispatchFetchPosts: React.PropTypes.func,
+  dispatchFetchPosts: React.PropTypes.func.isRequired,
 }
 
 export default PostList

@@ -1,11 +1,11 @@
 import { connect } from 'react-redux'
 
-
 import PostList from './PostsList'
 import { fetchPosts } from '../postsActions'
+import { getPostTitles } from '../postsSelectors'
 
-const mapStateToProps = ({ posts }) => ({
-  posts: posts.posts,
+const mapStateToProps = state => ({
+  posts: getPostTitles(state),
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -1,8 +1,21 @@
-export const fetchPosts = () => { //eslint-disable-line
-  return fetch('https://jsonplaceholder.typicode.com/posts').then((response) => {
+export const fetchPosts = () => {
+  return fetch('https://jsonplaceholder.typicode.com/posts?_limit=5').then((response) => {
     return response.json().then((json) => {
       console.log('API Json', json)
       return json
+    }).catch((err) => {
+      console.log(err)
+    })
+  })
+}
+
+export const postPost = (data) => {
+  return fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'post',
+    body: JSON.stringify(data),
+  }).then((response) => {
+    return response.json().then((json) => {
+      return { ...data, ...json }
     }).catch((err) => {
       console.log(err)
     })

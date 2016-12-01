@@ -6,8 +6,8 @@ import styles from './List.css'
 const List = (props) => {
   return (
     <ul className={styles.list}>
-      {props.items.map(item => (
-        <li key={item}>{item}</li>
+      {props.items.map((item, i) => (
+        <li key={i}>{item}</li>
       ))}
     </ul>
   )
