@@ -1,5 +1,7 @@
 import React from 'react'
 
+import PostListContainer from './posts/PostsList/PostsListContainer'
+
 const Restful = () => {
   return (
     <div>
@@ -7,6 +9,10 @@ const Restful = () => {
       <p>
         Add Restful calls here
       </p>
+      <div>
+        <h2>Posts</h2>
+        <PostListContainer />
+      </div>
     </div>
   )
 }
