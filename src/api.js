@@ -1,3 +1,14 @@
+export const fetchPost = (id) => {
+  return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`).then((response) => {
+    return response.json().then((json) => {
+      console.log('API Json', json)
+      return json
+    }).catch((err) => {
+      console.log(err)
+    })
+  })
+}
+
 export const fetchPosts = () => {
   return fetch('https://jsonplaceholder.typicode.com/posts?_limit=5').then((response) => {
     return response.json().then((json) => {

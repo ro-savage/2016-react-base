@@ -1,13 +1,12 @@
 import { takeEvery, delay } from 'redux-saga'
 import { put, call } from 'redux-saga/effects'
 
-import { fetchPosts, postPost } from './api'
+import { fetchPost, fetchPosts, postPost } from './api'
 
 // Our worker Saga: will perform the async increment task
 export function* incrementAsync() {
   console.log('incrementAsync!')
   yield call(delay, 500)
-  // yield delay(500)
   yield put({ type: 'INCREMENT' })
 }
 
@@ -17,10 +16,21 @@ export function* watchIncrementAsync() {
   yield takeEvery('INCREMENT_ASYNC', incrementAsync)
 }
 
+export function* sagaFetchPost(data) {
+  console.log('running', sagaFetchPost)
+  const post = yield call(fetchPost, data.payload)
+  yield put({ type: 'ADD_POST', payload: post })
+  console.log('sagaFetchPost - ', post)
+}
+
+export function* watchFetchPost() {
+  yield takeEvery('FETCH_POST', sagaFetchPost)
+}
+
 export function* sagaFetchPosts() {
-  const items = yield call(fetchPosts)
-  yield put({ type: 'ADD_POSTS', payload: items })
-  console.log('sagaFetchPosts - ', items)
+  const posts = yield call(fetchPosts)
+  yield put({ type: 'ADD_POSTS', payload: posts })
+  console.log('sagaFetchPosts - ', posts)
 }
 
 export function* watchFetchPosts() {
@@ -45,6 +55,7 @@ export default function* rootSaga() {
   yield [
     helloSaga(),
     watchIncrementAsync(),
+    watchFetchPost(),
     watchFetchPosts(),
     watchPostPost(),
   ]
