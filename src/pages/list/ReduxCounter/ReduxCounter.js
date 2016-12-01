@@ -9,14 +9,16 @@ const counter = (props) => {
       <br />
       <Button onClick={props.increase}>Up!</Button>
       <Button onClick={props.decrease}>Down!</Button>
+      <Button onClick={props.increaseAsync}>Async!</Button>
     </div>
   )
 }
 
 counter.propTypes = {
-  counter: React.PropTypes.string,
+  counter: React.PropTypes.number,
   increase: React.PropTypes.func,
   decrease: React.PropTypes.func,
+  increaseAsync: React.PropTypes.func,
 }
 
 export default counter

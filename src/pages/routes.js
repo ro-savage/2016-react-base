@@ -4,6 +4,7 @@ import { Route, IndexRoute } from 'react-router'
 import Layout from './layout/layout/Layout'
 import Home from './home/Home'
 import List from './list/List'
+import Restful from './restful/Restful'
 
 
 // Uses React-Router to create routes for SPA
@@ -14,6 +15,7 @@ const routes = (
   <Route path="/" component={Layout} >
     <IndexRoute title="Home Page" component={Home} />
     <Route path="list" title="List Page" component={List} />
+    <Route path="restful" title="RESTful Page" component={Restful} />
   </Route>
 )
 

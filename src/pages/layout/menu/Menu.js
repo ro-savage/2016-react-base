@@ -8,6 +8,8 @@ const Menu = () => (
     <IndexLink to="/">Home</IndexLink>
     &nbsp;|&nbsp;
     <Link to="list">List</Link>
+    &nbsp;|&nbsp;
+    <Link to="restful">Restful</Link>
   </div>
 )
 

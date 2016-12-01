@@ -1,3 +1,6 @@
 .appIntro {
   font-size: large;
+  width: 60vw;
+  margin: auto;
+  text-align: left;
 }

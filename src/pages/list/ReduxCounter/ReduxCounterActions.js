@@ -5,3 +5,7 @@ export const increaseCounter = () => ({
 export const decreaseCounter = () => ({
   type: 'DECREMENT',
 })
+
+export const increaseCounterAsync = () => ({
+  type: 'INCREMENT_ASYNC',
+})
