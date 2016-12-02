@@ -6,18 +6,34 @@ import { fetchPost } from '../posts/postsActions'
 import Post from './Post/Post'
 
 const PostPage = (props) => {
+  console.log('PostPage', props)
   if (!props.post) {
     props.dispatchFetchPost(props.params.id)
+    return <p>Loading post...</p>
   }
 
-  return <Post post={props.post} />
+  return (
+    <Post
+      id={props.post.id}
+      title={props.post.title}
+      body={props.post.body}
+      userId={props.post.userId}
+    />
+  )
 }
 
 PostPage.propTypes = {
   post: React.PropTypes.shape({
-    id: React.PropTypes.number,
+    id: React.PropTypes.oneOfType([
+      React.PropTypes.string,
+      React.PropTypes.number,
+    ]),
     title: React.PropTypes.string,
     body: React.PropTypes.string,
+    userId: React.PropTypes.oneOfType([
+      React.PropTypes.string,
+      React.PropTypes.number,
+    ]),
   }),
   params: React.PropTypes.shape({
     id: React.PropTypes.string,
@@ -26,7 +42,7 @@ PostPage.propTypes = {
 }
 
 const mapStateToProps = (state, props) => ({
-  post: getPost(props.params.id),
+  post: getPost(state, props.params.id),
 })
 
 const mapDispatchToProps = dispatch => ({

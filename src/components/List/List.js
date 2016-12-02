@@ -4,6 +4,7 @@ import styles from './List.css'
 
 
 const List = (props) => {
+  const listItem = props.items ? props.items : props.children
   return (
     <ul className={styles.list}>
       {props.items.map((item, i) => (
