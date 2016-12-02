@@ -60,7 +60,8 @@
       "it": false,
       "describe": false,
       "expect": false,
-      "fetch": false
+      "fetch": false,
+      "test": false
     }
   },
   "devDependencies": {
@@ -77,6 +78,7 @@
     "css-loader": "0.25.0",
     "detect-port": "1.0.1",
     "dotenv": "2.0.0",
+    "enzyme": "^2.6.0",
     "eslint": "^3.11.1",
     "eslint-config-airbnb": "^13.0.0",
     "eslint-config-airbnb-base": "^10.0.1",
@@ -101,7 +103,9 @@
     "postcss-import": "^8.2.0",
     "postcss-loader": "1.0.0",
     "promise": "7.1.1",
+    "react-addons-test-utils": "^15.4.1",
     "react-dev-utils": "^0.3.0",
+    "react-test-renderer": "^15.4.1",
     "recursive-readdir": "2.1.0",
     "redux-immutable-state-invariant": "^1.2.4",
     "redux-logger": "^2.7.4",

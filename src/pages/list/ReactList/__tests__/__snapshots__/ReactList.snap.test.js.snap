@@ -1,0 +1,54 @@
+exports[`test ReactList changes when new item is added 1`] = `
+<div>
+  <ul
+    className={undefined}>
+    <li>
+      Item 1
+    </li>
+    <li>
+      Item 2
+    </li>
+    <li>
+      Item 3
+    </li>
+  </ul>
+  <input
+    onChange={[Function]}
+    type="text"
+    value="" />
+  <button
+    className={undefined}
+    onClick={[Function]}>
+    Add Items
+  </button>
+</div>
+`;
+
+exports[`test ReactList changes when new item is added 2`] = `
+<div>
+  <ul
+    className={undefined}>
+    <li>
+      Item 1
+    </li>
+    <li>
+      Item 2
+    </li>
+    <li>
+      Item 3
+    </li>
+    <li>
+      Item 4
+    </li>
+  </ul>
+  <input
+    onChange={[Function]}
+    type="text"
+    value="" />
+  <button
+    className={undefined}
+    onClick={[Function]}>
+    Add Items
+  </button>
+</div>
+`;
