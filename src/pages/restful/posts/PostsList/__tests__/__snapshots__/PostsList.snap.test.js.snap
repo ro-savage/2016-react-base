@@ -1,0 +1,24 @@
+exports[`test ReactList changes when new item is added 1`] = `
+<div>
+  <ul
+    className={undefined}>
+    <div>
+      <li>
+        <a
+          onClick={[Function]}
+          style={Object {}}>
+          postMock
+           (
+          userMock
+          )
+        </a>
+      </li>
+    </div>
+  </ul>
+  <button
+    className={undefined}
+    onClick={[Function]}>
+    Fetch posts from server
+  </button>
+</div>
+`;

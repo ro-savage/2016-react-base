@@ -1,0 +1,24 @@
+exports[`test ReactList changes when new item is added 1`] = `
+<div>
+  <span>
+    Counter: 
+    1
+  </span>
+  <br />
+  <button
+    className={undefined}
+    onClick={[Function]}>
+    Up!
+  </button>
+  <button
+    className={undefined}
+    onClick={[Function]}>
+    Down!
+  </button>
+  <button
+    className={undefined}
+    onClick={[Function]}>
+    Async!
+  </button>
+</div>
+`;

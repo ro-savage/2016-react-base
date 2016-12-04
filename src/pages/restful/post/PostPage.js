@@ -6,7 +6,6 @@ import { fetchPost } from '../posts/postsActions'
 import Post from './Post/Post'
 
 const PostPage = (props) => {
-  console.log('PostPage', props)
   if (!props.post) {
     props.dispatchFetchPost(props.params.id)
     return <p>Loading post...</p>
