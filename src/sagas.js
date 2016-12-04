@@ -1,74 +1,29 @@
 import { takeEvery, delay } from 'redux-saga'
 import { put, call } from 'redux-saga/effects'
 
-import { fetchPost, fetchPosts, postPost, fetchUsers } from './api'
+// Import all the Sagas
+import * as userSagas from './pages/restful/users/usersSagas'
+import * as postsSagas from './pages/restful/posts/postsSagas'
 
-// Our worker Saga: will perform the async increment task
+// Worker Saga: will perform the async increment task
 export function* incrementAsync() {
-  console.log('incrementAsync!')
-  yield call(delay, 500)
-  yield put({ type: 'INCREMENT' })
+  yield call(delay, 500) // Deliberate delay
+  yield put({ type: '@@counter/INCREASE_COUNTER' }) // Usually this would use the export action
+  // constant.
 }
 
-// Our watcher Saga: spawn a new incrementAsync task on each INCREMENT_ASYNC
+// Watcher Saga: spawn a new incrementAsync task on each INCREMENT_ASYNC
 export function* watchIncrementAsync() {
-  console.log('watchIncrementAsync!')
-  yield takeEvery('INCREMENT_ASYNC', incrementAsync)
-}
-
-export function* sagaFetchPost(data) {
-  console.log('running', sagaFetchPost)
-  const post = yield call(fetchPost, data.payload)
-  yield put({ type: 'ADD_POST', payload: post })
-  console.log('sagaFetchPost - ', post)
-}
-
-export function* watchFetchPost() {
-  yield takeEvery('FETCH_POST', sagaFetchPost)
-}
-
-export function* sagaFetchPosts() {
-  const posts = yield call(fetchPosts)
-  yield put({ type: 'ADD_POSTS', payload: posts })
-  console.log('sagaFetchPosts - ', posts)
-}
-
-export function* watchFetchPosts() {
-  yield takeEvery('FETCH_POSTS', sagaFetchPosts)
-}
-
-export function* sagaPostPost(data) {
-  const item = yield call(postPost, data.payload)
-  yield put({ type: 'ADD_POST', payload: item })
-  console.log('sagaPostPost - ', item)
-}
-
-export function* watchPostPost() {
-  yield takeEvery('POST_POST', sagaPostPost)
-}
-
-export function* helloSaga() { // eslint-disable-line
-  // Do nothing. Yay!
-}
-
-// USERS
-export function* sagaFetchUsers() {
-  const users = yield call(fetchUsers)
-  yield put({ type: '@@users/ADD_USERS', payload: users })
-  console.log('sagaFetchUsers - ', users)
-}
-
-export function* watchFetchUsers() {
-  yield takeEvery('@@users/FETCH_USERS', sagaFetchUsers)
+  yield takeEvery('@@counter/INCREMENT_ASYNC', incrementAsync) // Usually this would use the
+  // export action constant.
 }
 
 export default function* rootSaga() {
   yield [
-    helloSaga(),
     watchIncrementAsync(),
-    watchFetchPost(),
-    watchFetchPosts(),
-    watchPostPost(),
-    watchFetchUsers(),
+    postsSagas.watchFetchPost(),
+    postsSagas.watchFetchPosts(),
+    postsSagas.watchPostPost(),
+    userSagas.watchFetchUsers(),
   ]
 }
