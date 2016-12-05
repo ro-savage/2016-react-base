@@ -3,7 +3,7 @@ import React from 'react'
 import PostListContainer from './posts/PostsList/PostsListContainer'
 import PostInputContainer from './posts/PostInput/PostInputContainer'
 
-const Restful = () => {
+const RestPage = () => {
   return (
     <div>
       <h2>Restful calls / Redux side effects</h2>
@@ -20,4 +20,4 @@ const Restful = () => {
   )
 }
 
-export default Restful
+export default RestPage

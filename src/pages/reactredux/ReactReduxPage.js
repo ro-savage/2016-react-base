@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from './List.css'
+import styles from './ReactReduxPage.css'
 import ReactList from './ReactList/ReactList'
 import ReduxListContainer from './ReduxList/ReduxListContainer'
 import ReduxCounterContainer from './ReduxCounter/ReduxCounterContainer'

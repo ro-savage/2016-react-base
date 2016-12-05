@@ -2,10 +2,10 @@ import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 
 import Layout from './layout/layout/Layout'
-import Home from './home/Home'
-import List from './list/List'
-import Restful from './restful/Restful'
-import PostPage from './restful/post/PostPage'
+import HomePage from './home/HomePage'
+import ReactReduxPage from './reactredux/ReactReduxPage'
+import RestPage from './rest/RestPage'
+import PostPage from './rest/post/PostPage'
 
 // Uses React-Router to create routes for SPA
 // Each route should be passed a title
@@ -13,10 +13,10 @@ import PostPage from './restful/post/PostPage'
 // The main Route compontent contains the the app layout, imported as Layout
 const routes = (
   <Route path="/" component={Layout} >
-    <IndexRoute title="Home Page" component={Home} />
-    <Route path="list" title="List Page" component={List} />
-    <Route path="restful" title="RESTful Page" component={Restful} />
-    <Route path="restful/post/:id" title="Post Page" component={PostPage} />
+    <IndexRoute title="Home Page" component={HomePage} />
+    <Route path="react-redux" title="React Redux Page" component={ReactReduxPage} />
+    <Route path="rest" title="REST Page" component={RestPage} />
+    <Route path="rest/post/:id" title="Post Page" component={PostPage} />
   </Route>
 )
 

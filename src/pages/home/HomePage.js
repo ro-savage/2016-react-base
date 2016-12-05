@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from './Home.css'
+import styles from './HomePage.css'
 
 const Home = () =>
   <div className={styles.appIntro}>

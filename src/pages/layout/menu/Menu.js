@@ -7,9 +7,9 @@ const Menu = () => (
   <div className={styles.menu}>
     <IndexLink to="/">Home</IndexLink>
     &nbsp;|&nbsp;
-    <Link to="/list">List</Link>
+    <Link to="/react-redux">React Redux</Link>
     &nbsp;|&nbsp;
-    <Link to="/restful">Restful</Link>
+    <Link to="/rest">REST</Link>
   </div>
 )
 
