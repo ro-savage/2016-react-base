@@ -142,6 +142,12 @@ But if you'd like to learn more. Here are some more suggestions for the tech sta
 (Coming soon)
 
 ## Directory Structure
+This react project uses a feature based directory structure.
+- The `components` folder contains generic components shared across many pages of the app'
+- The `pages` folder contains each route, and how each page is laid out
+- The `features` folder contains all other components that are generally related to a single
+topic, e.g. 'users' or 'transactions'. It also contains all redux logic for each of these features
+
 ```
 ├── config                         # Config files for devs and test
 │   └── *                          #
