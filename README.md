@@ -40,19 +40,20 @@ This is a base for developing react apps, originally based on [create-react-app]
 ## Technologies
 
 This project is built using a React/Redux based frame work and uses the core following packages
-- React (JS Framework)
-- Redux (JS state management)
-- React-Router (SPA Routing)
-- Redux-Saga (Handling of API / Async calls)
-- Reselect (Cache internal state queries)
-- Jest (Testing framework)
-- Enzyme (Testing renderer)
-- PostCSS (Process CSS before create CSS file)
-- CSS Modules (Import name-spaced classes)
-- cssnext (Use future syntax of CSS)
-- Webpack (JS Builder and complier)
-- Babel (Use ES / ES6 Next JS syntax)
-- React Hot Loader (Auto reload, keeping internal state)
+- [React](https://facebook.github.io/react/) (JS Framework)
+- [Redux](http://redux.js.org/) (JS state management)
+- [React-Router](https://github.com/ReactTraining/react-router) (SPA Routing)
+- [Redux-Saga](https://github.com/yelouafi/redux-saga) (Handling of API / Async calls)
+- [Reselect](https://github.com/reactjs/reselect) (Cache internal state queries)
+- [Jest](https://facebook.github.io/jest/) (Testing framework)
+- [Enzyme](http://airbnb.io/enzyme/) (Testing renderer)
+- [PostCSS](http://postcss.org/) (Process CSS before create CSS file)
+- [CSS Modules](https://github.com/css-modules/css-modules) (Import name-spaced classes)
+- [cssnext](http://cssnext.io/) (Use future syntax of CSS)
+- [Webpack](https://webpack.github.io/) (JS Builder and complier)
+- [Babel](https://babeljs.io/) (Use ES / ES6 Next JS syntax)
+- [React Hot Loader](https://gaearon.github.io/react-hot-loader/) (Auto reload, keeping internal
+state)
 
 
 ## Before You Start
@@ -64,20 +65,37 @@ This project is written entirely using ES6 / ES Next features, then complied to 
 If you have not been writing code in ES6, you should first read up and follow some tutorials to
 understand ES6.
 Suggested Reading:
+* [es-6features.org](http://es6-features.org/) - Simple examples of ES5 vs ES6 (Highly recommended)
+* [Learn harmony](http://learnharmony.org/) - Interactive Lessons for ES6
+* [How to learn ES6 links](https://medium.com/javascript-scene/how-to-learn-es6-47d9a1ac2620#
+.ka2hmqul6) - Collection of suggested learning links
+* [ES6 Indepth by Mozillia](https://hacks.mozilla.org/category/es6-in-depth/) - Dive deep into new
+features
+* [ES6 in ES5](https://github.com/addyosmani/es6-equivalents-in-es5) - Shows examples of how ES6
+features were originally written in ES5.
+* [ES6 Katas](http://es6katas.org/) - Practice programming Kata's in ES6
 
 ### React Framework
 The React Framework is based on the ideas of components and one-way data flow. It takes
 inspiration from 'functional programming'. If you haven't used a functional & component based
 framework/lanage before then you should follow a couple React tutorials.
-Suggestions:
+Suggested reading:
+* [Official React Docs](https://facebook.github.io/react/docs/hello-world.html) - Good quick intro
+* [React Fundmentals](https://egghead.io/courses/react-fundamentals) - Free video series
+* [SurviveJS - React](http://survivejs.com/react/introduction/) - Deep dive tutorial on react &
+webpack
 
 ### Redux State Managemnet
 Redux is used for state management. It creates a single data store at the top level which is the
 single source of truth. All data is then passed down from that single source of truth. Every time
 a change occurs, every component recieved the updated data even if nothing has changed for it.
-
-If you have not used Elm or something similar, its worth reading up about redux.
 Suggested reading:
+* [Getting started with Redux](https://egghead.io/courses/getting-started-with-redux) - Awesome
+series. **Watch first**
+* [Official docs](http://redux.js.org/) -  Official docs have a great tutorial
+* [Full Stack React/Redux](https://teropa.info/blog/2015/09/10/full-stack-redux-tutorial.html) -
+Great deep dive into React/Redux
+* [Building React Applications with Idiomatic Redux](https://egghead.io/courses/building-react-applications-with-idiomatic-redux) - Advanced video course. Highly recommended
 
 ### Handling API calls and other async data
 Redux Saga is used for handling API calls and other async events, and bring the returned values
@@ -86,11 +104,17 @@ copying/modifying it and wait until you need to do something new to dive deeperi
 saga's work.
 
 Suggested reading:
+* [Offical Saga Docs](https://yelouafi.github.io/redux-saga/docs/introduction/BeginnerTutorial
+.html) - Good introduction
+* [Redux and Sagas](http://jaysoo.ca/2016/01/03/managing-processes-in-redux-using-sagas/) -
+Deeper dive into Sagas
+* [Async operations using redux-saga](https://medium.freecodecamp
+.com/async-operations-using-redux-saga-2ba02ae077b3#.mcmxsk6i8) - Another dive into redux-saga
 
 ### More suggested reading
 There is a lot more to learn, the rest can more-or-less be understood by reading this code base.
 But if you'd like to learn more. Here are some more suggestions for the tech stack.
-
+(Coming soon)
 
 ## Directory Structure
 ```
@@ -124,7 +148,7 @@ But if you'd like to learn more. Here are some more suggestions for the tech sta
 │   │   └── users/                 # All app JS files related to users
 │   ├── pages/                     # Pages / Routes
 │   │   ├── <page name>/           # Name of Page and its components/containers
-│   │   └── RestPage/              # Files relating directly to that page/route
+│   │   ├── RestPage/              # Files relating directly to that page/route
 │   │   │   └── RestPage.js        # React Component/Container for the page
 │   │   ├── App.js                 # Wrapper for app which adds routers & redux
 │   │   └── routes.js              # All the app routes
@@ -171,14 +195,14 @@ Your app is ready to be deployed!
 
 ## React Basics
 
-## Importing a Component
+### Importing a Component
 
 This project setup supports ES6 modules thanks to Babel.<br>
 While you can still use `require()` and `module.exports`, we encourage you to use [`import` and `export`](http://exploringjs.com/es6/ch_modules.html) instead.
 
 For example:
 
-### `Button.js`
+#### `Button.js`
 
 ```js
 import React, { Component } from 'react';
@@ -192,7 +216,7 @@ class Button extends Component {
 export default Button; // Don’t forget to use export default!
 ```
 
-### `DangerButton.js`
+#### `DangerButton.js`
 
 
 ```js
@@ -220,13 +244,13 @@ Learn more about ES6 modules:
 * [Exploring ES6: Modules](http://exploringjs.com/es6/ch_modules.html)
 * [Understanding ES6: Modules](https://leanpub.com/understandinges6/read#leanpub-auto-encapsulating-code-with-modules)
 
-## Adding a Stylesheet
+### Adding a Stylesheet
 
 We use [CSS Modules](https://github.com/css-modules/css-modules) for importing stylesheets. It
 will name space all classes so that you will
 never have a conflict. Now you can just name classes whatever is best.
 
-### `Button.css`
+#### `Button.css`
 
 ```css
 .button {
@@ -234,7 +258,7 @@ never have a conflict. Now you can just name classes whatever is best.
 }
 ```
 
-### `Button.js`
+#### `Button.js`
 
 ```js
 import React, { Component } from 'react';
@@ -254,7 +278,7 @@ More Reading:
 * [Modular CSS with React](https://medium.com/@pioul/modular-css-with-react-61638ae9ea3e#.5lghlzj8x)
 
 
-## PostCSS / cssNext
+### PostCSS / cssNext
 
 We use [PostCSS](http://postcss.org/) with the [cssnext](http://cssnext.io/), [imports]
 (https://github.com/postcss/postcss-import) and
@@ -265,7 +289,7 @@ We use [PostCSS](http://postcss.org/) with the [cssnext](http://cssnext.io/), [i
 - imports: Allows us to import other css files
 - auto-prefix: Auto applies vendor prefixes to your css
 
-## Adding Images and Fonts
+### Adding Images and Fonts
 
 With Webpack, using static assets like images and fonts works similarly to CSS.
 
@@ -301,7 +325,7 @@ Webpack finds all relative module references in CSS (they start with `./`) and r
 
 An alternative way of handling static assets is described in the next section.
 
-## Using the `public` Folder
+### Using the `public` Folder
 
 Normally we encourage you to `import` assets in JavaScript files as described above. This mechanism provides a number of benefits:
 
@@ -342,7 +366,7 @@ Keep in mind the downsides of this approach:
 
 However, it can be handy for referencing assets like [`manifest.webmanifest`](https://developer.mozilla.org/en-US/docs/Web/Manifest) from HTML, or including small scripts like [`pace.js`](http://github.hubspot.com/pace/docs/welcome/) outside of the bundled code.
 
-## Adding Custom Environment Variables
+### Adding Custom Environment Variables
 
 Your project can consume variables declared in your environment as if they were declared locally in your JS files. By
 default you will have `NODE_ENV` defined for you, and any other environment variables starting with
@@ -396,12 +420,12 @@ The above form is looking for a variable called `REACT_APP_SECRET_CODE` from the
 value, we need to have it defined in the environment. This can be done using two ways: either in your shell or in
 a `.env` file.
 
-### Adding Temporary Environment Variables In Your Shell
+#### Adding Temporary Environment Variables In Your Shell
 
 Defining environment variables can vary between OSes. It's also important to know that this manner is temporary for the
 life of the shell session.
 
-#### Windows (cmd.exe)
+##### Windows (cmd.exe)
 
 ```cmd
 set REACT_APP_SECRET_CODE=abcdef&&npm start
@@ -409,13 +433,13 @@ set REACT_APP_SECRET_CODE=abcdef&&npm start
 
 (Note: the lack of whitespace is intentional.)
 
-#### Linux, OS X (Bash)
+##### Linux, OS X (Bash)
 
 ```bash
 REACT_APP_SECRET_CODE=abcdef npm start
 ```
 
-### Adding Development Environment Variables In `.env`
+#### Adding Development Environment Variables In `.env`
 
 >Note: this feature is available with `react-scripts@0.5.0` and higher.
 
@@ -431,7 +455,7 @@ Please refer to the [dotenv documentation](https://github.com/motdotla/dotenv) f
 >Note: If you are defining environment variables for development, your CI and/or hosting platform will most likely need
 these defined as well. Consult their documentation how to do this. For example, see the documentation for [Travis CI](https://docs.travis-ci.com/user/environment-variables/) or [Heroku](https://devcenter.heroku.com/articles/config-vars).
 
-## Using HTTPS in Development
+### Using HTTPS in Development
 
 >Note: this feature is available with `react-scripts@0.4.0` and higher.
 
@@ -439,7 +463,7 @@ You may require the dev server to serve pages over HTTPS. One particular case wh
 
 To do this, set the `HTTPS` environment variable to `true`, then start the dev server as usual with `npm start`:
 
-#### Windows (cmd.exe)
+##### Windows (cmd.exe)
 
 ```cmd
 set HTTPS=true&&npm start
@@ -447,7 +471,7 @@ set HTTPS=true&&npm start
 
 (Note: the lack of whitespace is intentional.)
 
-#### Linux, OS X (Bash)
+##### Linux, OS X (Bash)
 
 ```bash
 HTTPS=true npm start
@@ -455,7 +479,7 @@ HTTPS=true npm start
 
 Note that the server will use a self-signed certificate, so your web browser will almost definitely display a warning upon accessing the page.
 
-## Running Tests
+### Running Tests
 
 Create React App uses [Jest](https://facebook.github.io/jest/) as its test runner. To prepare for this integration, we did a [major revamp](https://facebook.github.io/jest/blog/2016/09/01/jest-15.html) of Jest so if you heard bad things about it years ago, give it another try.
 
@@ -465,7 +489,7 @@ While Jest provides browser globals such as `window` thanks to [jsdom](https://g
 
 We recommend that you use a separate tool for browser end-to-end tests if you need them. They are beyond the scope of Create React App.
 
-### Filename Conventions
+#### Filename Conventions
 
 Jest will look for test files with any of the following popular naming conventions:
 
@@ -485,7 +509,7 @@ The watcher includes an interactive command-line interface with the ability to r
 
 ![Jest watch mode](http://facebook.github.io/jest/img/blog/15-watch.gif)
 
-### Version Control Integration
+#### Version Control Integration
 
 By default, when you run `npm test`, Jest will only run the tests related to files changed since the last commit. This is an optimization designed to make your tests runs fast regardless of how many tests you have. However it assumes that you don’t often commit the code that doesn’t pass the tests.
 
@@ -493,7 +517,7 @@ Jest will always explicitly mention that it only ran tests related to the files 
 
 Jest will always run all tests on a [continuous integration](#continuous-integration) server or if the project is not inside a Git or Mercurial repository.
 
-### Writing Tests
+#### Writing Tests
 
 To create tests, add `it()` (or `test()`) blocks with the name of the test and its code. You may optionally wrap them in `describe()` blocks for logical grouping but this is neither required nor recommended.
 
@@ -511,7 +535,7 @@ it('sums numbers', () => {
 All `expect()` matchers supported by Jest are [extensively documented here](http://facebook.github.io/jest/docs/api.html#expect-value).<br>
 You can also use [`jest.fn()` and `expect(fn).toBeCalled()`](http://facebook.github.io/jest/docs/api.html#tobecalled) to create “spies” or mock functions.
 
-### Testing Components
+#### Testing Components
 
 There is a broad spectrum of component testing techniques. They range from a “smoke test” verifying that a component renders without throwing, to shallow rendering and testing some of the output, to full rendering and testing component lifecycle and state changes.
 
@@ -566,13 +590,13 @@ it('renders welcome message', () => {
 All Jest matchers are [extensively documented here](http://facebook.github.io/jest/docs/api.html#expect-value).<br>
 Nevertheless you can use a third-party assertion library like [Chai](http://chaijs.com/) if you want to, as described below.
 
-### Initializing Test Environment
+#### Initializing Test Environment
 
 If your app uses a browser API that you need to mock in your tests or if you just need a global setup before running your tests, add a `src/setupTests.js` to your project. It will be automatically executed before running your tests.
 
 For example:
 
-#### `src/setupTests.js`
+##### `src/setupTests.js`
 ```js
 const localStorageMock = {
   getItem: jest.fn(),
@@ -582,12 +606,12 @@ const localStorageMock = {
 global.localStorage = localStorageMock
 ```
 
-### Focusing and Excluding Tests
+#### Focusing and Excluding Tests
 
 You can replace `it()` with `xit()` to temporarily exclude a test from being executed.<br>
 Similarly, `fit()` lets you focus on a specific test without running any other tests.
 
-### Coverage Reporting
+#### Coverage Reporting
 
 Jest has an integrated coverage reporter that works well with ES6 and requires no configuration.<br>
 Run `npm test -- --coverage` (note extra `--` in the middle) to include a coverage report like this:
@@ -600,8 +624,8 @@ Note that tests run much slower with coverage so it is recommended to run it sep
 
 By default `npm test` runs the watcher with interactive CLI. However, you can force it to run tests once and finish the process by setting an environment variable called `CI`. Popular CI servers already set it by default but you can do this yourself too:
 
-### On CI servers
-#### Travis CI
+#### On CI servers
+##### Travis CI
 
 1. Following the [Travis Getting started](https://docs.travis-ci.com/user/getting-started/) guide for syncing your GitHub repository with Travis.  You may need to initialize some settings manually in your [profile](https://travis-ci.org/profile) page.
 1. Add a `.travis.yml` file to your git repository.
@@ -619,8 +643,8 @@ script:
 1. Trigger your first build with a git push.
 1. [Customize your Travis CI Build](https://docs.travis-ci.com/user/customizing-the-build/) if needed.
 
-### On your own environment
-##### Windows (cmd.exe)
+#### On your own environment
+###### Windows (cmd.exe)
 
 ```cmd
 set CI=true&&npm test
@@ -628,7 +652,7 @@ set CI=true&&npm test
 
 (Note: the lack of whitespace is intentional.)
 
-##### Linux, OS X (Bash)
+###### Linux, OS X (Bash)
 
 ```bash
 CI=true npm test
@@ -638,7 +662,7 @@ This way Jest will run tests once instead of launching the watcher.
 
 If you find yourself doing this often in development, please [file an issue](https://github.com/facebookincubator/create-react-app/issues/new) to tell us about your use case because we want to make watcher the best experience and are open to changing how it works to accommodate more workflows.
 
-### Disabling jsdom
+#### Disabling jsdom
 
 By default, the `package.json` of the generated project looks like this:
 
@@ -665,13 +689,13 @@ In contrast, **jsdom is not needed** for the following APIs:
 
 Finally, jsdom is also not needed for [snapshot testing](http://facebook.github.io/jest/blog/2016/07/27/jest-14.html). Longer term, this is the direction we are interested in exploring, but snapshot testing is [not fully baked yet](https://github.com/facebookincubator/create-react-app/issues/372) so we don’t officially encourage its usage yet.
 
-### Snapshot Testing
+#### Snapshot Testing
 
 Snapshot testing is a new feature of Jest that automatically generates text snapshots of your components and saves them on the disk so if the UI output changes, you get notified without manually writing any assertions on the component output.
 
-## Deployment
+### Deployment
 
-## Building for Relative Paths
+### Building for Relative Paths
 
 By default, the app produces a build assuming your app is hosted at the server root.<br>
 To override this, specify the `homepage` in your `package.json`, for example:
