@@ -7,8 +7,6 @@ You can find the most recent version of this guide [here](https://github.com/fac
 
 ## Table of Contents
 
-- [Updating to New Releases](#updating-to-new-releases)
-- [Sending Feedback](#sending-feedback)
 - [Folder Structure](#folder-structure)
 - [Available Scripts](#available-scripts)
   - [npm start](#npm-start)
@@ -53,46 +51,57 @@ You can find the most recent version of this guide [here](https://github.com/fac
   - [Surge](#surge)
 - [Something Missing?](#something-missing)
 
-## Updating to New Releases
-
-Create React App is divided into two packages:
-
-* `create-react-app` is a global command-line utility that you use to create new projects.
-* `react-scripts` is a development dependency in the generated projects (including this one).
-
-You almost never need to update `create-react-app` itself: it delegates all the setup to `react-scripts`.
-
-When you run `create-react-app`, it always creates the project with the latest version of `react-scripts` so you’ll get all the new features and improvements in newly created apps automatically.
-
-To update an existing project to a new version of `react-scripts`, [open the changelog](https://github.com/facebookincubator/create-react-app/blob/master/CHANGELOG.md), find the version you’re currently on (check `package.json` in this folder if you’re not sure), and apply the migration instructions for the newer versions.
-
-In most cases bumping the `react-scripts` version in `package.json` and running `npm install` in this folder should be enough, but it’s good to consult the [changelog](https://github.com/facebookincubator/create-react-app/blob/master/CHANGELOG.md) for potential breaking changes.
-
-We commit to keeping the breaking changes minimal so you can upgrade `react-scripts` painlessly.
-
-## Sending Feedback
-
-We are always open to [your feedback](https://github.com/facebookincubator/create-react-app/issues).
-
 ## Folder Structure
-
-After creation, your project should look like this:
 
 ```
 my-app/
-  README.md
-  node_modules/
+  config/
+    <config files for dev>
   package.json
   public/
+    <static files>
     index.html
     favicon.ico
+  scripts/
+    <npm scripts>
+    build.js
+    start.js
+    test.js
   src/
-    App.css
-    App.js
-    App.test.js
-    index.css
-    index.js
-    logo.svg
+    <files that work across entire app>
+    components/
+    <React componets shared across the entire app>
+    Button/
+      Button.js
+      Button.css
+      readme.md
+      __tests__/
+      <test files>
+```
+
+## Directory Structure
+```
+├── config                      # Config files for devs and test
+│   └── *                       #
+├── dist/                       # Built artifacts get put here
+├── scripts/                    # npm scripts
+│   ├── build.js                # Build for release <npm run build>
+│   ├── start.js                # Build for dev <npm start>
+│   └── test.js                 # Run tests <npm test>
+├── src                         # The source code of the application
+│   ├── components/             # React components shared across the app
+│   ├── pages/                  # Pages / Routes and all components related to a function                # Pages: React Container Components that live in routes
+│   ├── pages/                  # Pages / Routes and all components related to a function
+│   │   ├── <module name>/      # Redux module container the action, reducers and selectors
+│   │   ├── configure-store.js  # Redux store configured here (middleware, initial state, reducers...)
+│   │   └── root-reducer.js     # Here we combine all our reducers
+│   ├── shared/                 # Shared resources
+│   ├── static/                 # Static assets. Some call this `public/`
+│   ├── styles/                 # Global CSS styles (class names left intact)
+│   ├── app.js                  # Application entry point
+│   ├── index.html              # index.html template
+│   └── routes.js               # All our routes
+├── package.json                # (self explanatory)
 ```
 
 For the project to build, **these files must exist with exact filenames**:

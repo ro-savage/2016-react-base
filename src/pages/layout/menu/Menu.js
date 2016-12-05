@@ -3,6 +3,8 @@ import { Link, IndexLink } from 'react-router'
 
 import styles from './Menu.css'
 
+// We use the Link component from react-router
+// to link to pages across the webapp without actually loading pages.
 const Menu = () => (
   <div className={styles.menu}>
     <IndexLink to="/">Home</IndexLink>

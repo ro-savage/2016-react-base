@@ -4,7 +4,8 @@ import styles from './Layout.css'
 import Header from '../header/Header'
 import Menu from '../menu/Menu'
 
-// Example of class
+// Example of React Class (Does not need to be)
+// All pages are passed to layout, and then appear in the {this.props.children} section
 class Layout extends React.Component { //eslint-disable-line
   render() {
     return (

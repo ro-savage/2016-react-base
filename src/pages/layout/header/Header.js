@@ -1,6 +1,9 @@
 import React from 'react'
 
+// We can import SVGs and have them embed in the app, instead of making a http request
+// This is handled by webpack
 import logo from './logo.svg'
+
 import styles from './Header.css'
 
 const Header = props => (
