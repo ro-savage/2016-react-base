@@ -2,8 +2,8 @@ import { takeEvery, delay } from 'redux-saga'
 import { put, call } from 'redux-saga/effects'
 
 // Import all the Sagas
-import * as userSagas from './pages/rest/users/usersSagas'
-import * as postsSagas from './pages/rest/posts/postsSagas'
+import * as userSagas from './features/users/usersSagas'
+import * as postsSagas from './features/posts/postsSagas'
 
 // Worker Saga: will perform the async increment task
 export function* incrementAsync() {

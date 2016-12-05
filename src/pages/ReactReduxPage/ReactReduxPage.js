@@ -1,9 +1,9 @@
 import React from 'react'
 
 import styles from './ReactReduxPage.css'
-import ReactList from './ReactList/ReactList'
-import ReduxListContainer from './ReduxList/ReduxListContainer'
-import ReduxCounterContainer from './ReduxCounter/ReduxCounterContainer'
+import ReactList from '../../features/reactredux/ReactList/ReactList'
+import ReduxListContainer from '../../features/reactredux/ReduxList/ReduxListContainer'
+import ReduxCounterContainer from '../../features/reactredux/ReduxCounter/ReduxCounterContainer'
 
 const List = () => (
   <div>

@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { getPost } from '../posts/postsSelectors'
-import { fetchPost } from '../posts/postsActions'
-import Post from './Post/Post'
+import { getPost } from '../../features/posts/postsSelectors'
+import { fetchPost } from '../../features/posts/postsActions'
+import Post from '../../features/posts/Post/Post'
 
 const PostPage = (props) => {
   if (!props.post) {

@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import ReduxListReducer from './pages/reactredux/ReduxList/ReduxListReducer'
-import ReduxCounterReducer from './pages/reactredux/ReduxCounter/ReduxCounterReducer'
-import postsReducer from './pages/rest/posts/postsReducer'
-import usersReducer from './pages/rest/users/usersReducer'
+import ReduxListReducer from './features/reactredux/ReduxList/ReduxListReducer'
+import ReduxCounterReducer from './features/reactredux/ReduxCounter/ReduxCounterReducer'
+import postsReducer from './features/posts/postsReducer'
+import usersReducer from './features/users/usersReducer'
 
 const rootReducer = combineReducers({
   reduxList: ReduxListReducer,

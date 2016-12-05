@@ -1,7 +1,7 @@
 import React from 'react'
 
-import PostListContainer from './posts/PostsList/PostsListContainer'
-import PostInputContainer from './posts/PostInput/PostInputContainer'
+import PostListContainer from '../../features/posts/PostsList/PostsListContainer'
+import PostInputContainer from '../../features/posts/PostInput/PostInputContainer'
 
 const RestPage = () => {
   return (
