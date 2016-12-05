@@ -1,3 +1,4 @@
+/* We import our vars file */
 @import "../../config.css";
 
 .button {
@@ -6,7 +7,7 @@
   border: 1px solid #3b6e22;
   display: inline-block;
   cursor: pointer;
-  color: var(--color);
+  color: var(--color); /* Using imported cssnext var */
   padding: 6px 12px;
   text-decoration: none;
 }
