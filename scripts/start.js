@@ -32,6 +32,8 @@ var compiler;
 var handleCompile;
 
 function setupCompiler(host, port, protocol) {
+
+
   // "Compiler" is a low-level interface to Webpack.
   // It lets us listen to some events and provide our own custom messages.
   compiler = webpack(config, handleCompile);
@@ -41,29 +43,36 @@ function setupCompiler(host, port, protocol) {
   // bundle, so if you refresh, it'll wait instead of serving the old one.
   // "invalid" is short for "bundle invalidated", it doesn't imply any errors.
   compiler.plugin('invalid', function() {
-    clearConsole();
+    // clearConsole();
+    console.log();
     console.log('Compiling...');
+    console.log();
   });
 
   // "done" event fires when Webpack has finished recompiling the bundle.
   // Whether or not you have warnings or errors, you will get this event.
   compiler.plugin('done', function(stats) {
-    clearConsole();
+    // clearConsole();
 
     // We have switched off the default Webpack output in WebpackDevServer
     // options so we are going to "massage" the warnings and errors and present
     // them in a readable focused way.
     var messages = formatWebpackMessages(stats.toJson({}, true));
+    var buildTime = stats.endTime - stats.startTime;
     if (!messages.errors.length && !messages.warnings.length) {
+      console.log(chalk.blue('--------------------------------------------------------------------------'));
+      console.log('                        Running @ ' + chalk.red(protocol + '://' + host + ':' + port + '/'));
+      console.log(chalk.blue('--------------------------------------------------------------------------'));
+      console.log();
       console.log(chalk.green('Compiled successfully!'));
+      console.log(stats.toString({
+        chunks: false, // Makes the build much quieter
+        colors: true
+      }))
       console.log();
-      console.log('The app is running at:');
-      console.log();
-      console.log('  ' + chalk.cyan(protocol + '://' + host + ':' + port + '/'));
-      console.log();
-      console.log('Note that the development build is not optimized.');
-      console.log('To create a production build, use ' + chalk.cyan('npm run build') + '.');
-      console.log();
+      console.log(chalk.red('--------------------------------------------------------------------------'));
+      console.log('                               Built in: ' + buildTime + 'ms');
+      console.log(chalk.red('--------------------------------------------------------------------------'));
     }
 
     // If errors exist, only show errors.
@@ -221,7 +230,7 @@ function runDevServer(host, port, protocol) {
       return console.log(err);
     }
 
-    clearConsole();
+    // clearConsole();
     console.log(chalk.cyan('Starting the development server...'));
     console.log();
     openBrowser(protocol + '://' + host + ':' + port + '/');
@@ -243,7 +252,7 @@ detect(DEFAULT_PORT).then(port => {
     return;
   }
 
-  clearConsole();
+  // clearConsole();
   var question =
     chalk.yellow('Something is already running on port ' + DEFAULT_PORT + '.') +
     '\n\nWould you like to run the app on another port instead?';
