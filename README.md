@@ -1,23 +1,21 @@
 # 2016 React Base
 
-This is a base for developing react apps, originally based on [create-react-app](https://github.com/facebookincubator/create-react-app)
+This is a base for developing react apps. It contains examples of most of the features used within
+a medium sized React/Redux app, commented code, examples of tests and readmes.
+It can be forked, and used to start building any medium sized react project.
+
+This project is originally based on [create-react-app](https://github
+.com/facebookincubator/create-react-app), and follows current react best practice.
 
 ## Table of Contents
 
+- [Commands](#commands)
 - [Technologies](#technologies)
 - [Before you start](#before-you-start)
-  - [ES6 Javascript Syntax](#es6-javascript-syntax)
-  - [npm test](#npm-test)
 - [Folder Structure](#directory-structure)
-- [Available Scripts](#available-scripts)
-  - [npm start](#npm-start)
-  - [npm test](#npm-test)
-  - [npm run build](#npm-run-build)
-  - [npm run eject](#npm-run-eject)
-- [Installing a Dependency](#installing-a-dependency)
 - [Importing a Component](#importing-a-component)
 - [Adding a Stylesheet](#adding-a-stylesheet)
-- [Post-Processing CSS](#post-processing-css)
+- [PostCSS and cssnext](#postcss-and-cssnext)
 - [Adding Images and Fonts](#adding-images-and-fonts)
 - [Using the `public` Folder](#using-the-public-folder)
 - [Adding Custom Environment Variables](#adding-custom-environment-variables)
@@ -37,6 +35,34 @@ This is a base for developing react apps, originally based on [create-react-app]
   - [Disabling jsdom](#disabling-jsdom)
   - [Snapshot Testing](#snapshot-testing)
 
+## Commands
+
+In the project directory, you can run:
+
+### `npm start`
+
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.<br>
+
+### `npm test`
+
+Launches the test runner in the interactive watch mode.<br>
+See the section about [running tests](#running-tests) for more information.
+
+### `npm run lint`
+
+Runs the javascript linter
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.<br>
+The app is ready to be deployed!
+
 ## Technologies
 
 This project is built using a React/Redux based frame work and uses the core following packages
@@ -54,7 +80,6 @@ This project is built using a React/Redux based frame work and uses the core fol
 - [Babel](https://babeljs.io/) (Use ES / ES6 Next JS syntax)
 - [React Hot Loader](https://gaearon.github.io/react-hot-loader/) (Auto reload, keeping internal
 state)
-
 
 ## Before You Start
 
@@ -167,32 +192,6 @@ But if you'd like to learn more. Here are some more suggestions for the tech sta
 Only files inside `public` can be used from `public/index.html`.<br>
 Read instructions below for using assets from JavaScript and HTML.
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](#running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-
 ## React Basics
 
 ### Importing a Component
@@ -278,7 +277,7 @@ More Reading:
 * [Modular CSS with React](https://medium.com/@pioul/modular-css-with-react-61638ae9ea3e#.5lghlzj8x)
 
 
-### PostCSS / cssNext
+### PostCSS and cssnext
 
 We use [PostCSS](http://postcss.org/) with the [cssnext](http://cssnext.io/), [imports]
 (https://github.com/postcss/postcss-import) and
