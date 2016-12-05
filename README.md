@@ -2,30 +2,25 @@
 
 This is a base for developing react apps, originally based on [create-react-app](https://github.com/facebookincubator/create-react-app)
 
-Below you will find some information on how to perform common tasks.<br>
-You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
-
 ## Table of Contents
 
-- [Folder Structure](#folder-structure)
+- [Technologies](#technologies)
+- [Before you start](#before-you-start)
+  - [ES6 Javascript Syntax](#es6-javascript-syntax)
+  - [npm test](#npm-test)
+- [Folder Structure](#directory-structure)
 - [Available Scripts](#available-scripts)
   - [npm start](#npm-start)
   - [npm test](#npm-test)
   - [npm run build](#npm-run-build)
   - [npm run eject](#npm-run-eject)
-- [Displaying Lint Output in the Editor](#displaying-lint-output-in-the-editor)
 - [Installing a Dependency](#installing-a-dependency)
 - [Importing a Component](#importing-a-component)
 - [Adding a Stylesheet](#adding-a-stylesheet)
 - [Post-Processing CSS](#post-processing-css)
 - [Adding Images and Fonts](#adding-images-and-fonts)
 - [Using the `public` Folder](#using-the-public-folder)
-- [Adding Bootstrap](#adding-bootstrap)
-- [Adding Flow](#adding-flow)
 - [Adding Custom Environment Variables](#adding-custom-environment-variables)
-- [Can I Use Decorators?](#can-i-use-decorators)
-- [Integrating with a Node Backend](#integrating-with-a-node-backend)
-- [Proxying API Requests in Development](#proxying-api-requests-in-development)
 - [Using HTTPS in Development](#using-https-in-development)
 - [Generating Dynamic `<meta>` Tags on the Server](#generating-dynamic-meta-tags-on-the-server)
 - [Running Tests](#running-tests)
@@ -40,85 +35,113 @@ You can find the most recent version of this guide [here](https://github.com/fac
   - [Coverage Reporting](#coverage-reporting)
   - [Continuous Integration](#continuous-integration)
   - [Disabling jsdom](#disabling-jsdom)
-  - [Experimental Snapshot Testing](#experimental-snapshot-testing)
-- [Deployment](#deployment)
-  - [Building for Relative Paths](#building-for-relative-paths)
-  - [GitHub Pages](#github-pages)
-  - [Heroku](#heroku)
-  - [Modulus](#modulus)
-  - [Netlify](#netlify)
-  - [Now](#now)
-  - [Surge](#surge)
-- [Something Missing?](#something-missing)
+  - [Snapshot Testing](#snapshot-testing)
 
-## Folder Structure
+## Technologies
 
-```
-my-app/
-  config/
-    <config files for dev>
-  package.json
-  public/
-    <static files>
-    index.html
-    favicon.ico
-  scripts/
-    <npm scripts>
-    build.js
-    start.js
-    test.js
-  src/
-    <files that work across entire app>
-    components/
-    <React componets shared across the entire app>
-    Button/
-      Button.js
-      Button.css
-      readme.md
-      __tests__/
-      <test files>
-```
+This project is built using a React/Redux based frame work and uses the core following packages
+- React (JS Framework)
+- Redux (JS state management)
+- React-Router (SPA Routing)
+- Redux-Saga (Handling of API / Async calls)
+- Reselect (Cache internal state queries)
+- Jest (Testing framework)
+- Enzyme (Testing renderer)
+- PostCSS (Process CSS before create CSS file)
+- CSS Modules (Import name-spaced classes)
+- cssnext (Use future syntax of CSS)
+- Webpack (JS Builder and complier)
+- Babel (Use ES / ES6 Next JS syntax)
+- React Hot Loader (Auto reload, keeping internal state)
+
+
+## Before You Start
+
+Before you start working on this application you should have some knowledge of a few key features.
+
+### ES6 Javascript Syntax
+This project is written entirely using ES6 / ES Next features, then complied to ES5 / Browser level.
+If you have not been writing code in ES6, you should first read up and follow some tutorials to
+understand ES6.
+Suggested Reading:
+
+### React Framework
+The React Framework is based on the ideas of components and one-way data flow. It takes
+inspiration from 'functional programming'. If you haven't used a functional & component based
+framework/lanage before then you should follow a couple React tutorials.
+Suggestions:
+
+### Redux State Managemnet
+Redux is used for state management. It creates a single data store at the top level which is the
+single source of truth. All data is then passed down from that single source of truth. Every time
+a change occurs, every component recieved the updated data even if nothing has changed for it.
+
+If you have not used Elm or something similar, its worth reading up about redux.
+Suggested reading:
+
+### Handling API calls and other async data
+Redux Saga is used for handling API calls and other async events, and bring the returned values
+intro redux. Saga's are compliated to gasp. I would suggest just looking at the current code and
+copying/modifying it and wait until you need to do something new to dive deepering into how
+saga's work.
+
+Suggested reading:
+
+### More suggested reading
+There is a lot more to learn, the rest can more-or-less be understood by reading this code base.
+But if you'd like to learn more. Here are some more suggestions for the tech stack.
+
 
 ## Directory Structure
 ```
-├── config                      # Config files for devs and test
-│   └── *                       #
-├── dist/                       # Built artifacts get put here
-├── scripts/                    # npm scripts
-│   ├── build.js                # Build for release <npm run build>
-│   ├── start.js                # Build for dev <npm start>
-│   └── test.js                 # Run tests <npm test>
-├── src                         # The source code of the application
-│   ├── components/             # React components shared across the app
-│   ├── pages/                  # Pages / Routes and all components related to a function                # Pages: React Container Components that live in routes
-│   ├── pages/                  # Pages / Routes and all components related to a function
-│   │   ├── <module name>/      # Redux module container the action, reducers and selectors
-│   │   ├── configure-store.js  # Redux store configured here (middleware, initial state, reducers...)
-│   │   └── root-reducer.js     # Here we combine all our reducers
-│   ├── shared/                 # Shared resources
-│   ├── static/                 # Static assets. Some call this `public/`
-│   ├── styles/                 # Global CSS styles (class names left intact)
-│   ├── app.js                  # Application entry point
-│   ├── index.html              # index.html template
-│   └── routes.js               # All our routes
+├── config                         # Config files for devs and test
+│   └── *                          #
+├── dist/                          # Built artifacts get put here
+├── scripts/                       # npm scripts
+│   ├── build.js                   # Build for release <npm run build>
+│   ├── start.js                   # Build for dev <npm start>
+│   └── test.js                    # Run tests <npm test>
+├── src                            # The source code of the application
+│   ├── components/                # React components shared across the app
+│   │   └── Button/                # React Button used throughout the app
+│   │       ├── Button.css         # Styles related directly to the Button
+│   │       ├── Button.js          # Button - React Component
+│   │       └── readme.md          # Readme on how to use the button
+│   ├── features/                  # Components, API, Redux and Sagas by feature
+│   │   ├── posts/                 # All app JS files related to posts
+│   │   │   ├── PostList/
+│   │   │   │   ├── PostList.js    # PostList React Component
+│   │   │   │   ├── PostListContainer.js # Container that linked PostList to redux store
+│   │   │   │   └── __tests__      # Tests for PostList and PostListContainer
+│   │   │   ├── postsActions.js    # post related actions
+│   │   │   ├── postsAPI.js        # posts related APIs
+│   │   │   ├── postsReducer.js    # posts reducer
+│   │   │   ├── postsSagas.js      # posts related sagas
+│   │   │   ├── postsSelectors.js  # posts related selectors
+│   │   │   ├── Post/              # Post Component
+│   │   │   └── PostInput/         # PostInput Component
+│   │   └── reactredux/            # All app JS files related to reactredux
+│   │   └── users/                 # All app JS files related to users
+│   ├── pages/                     # Pages / Routes
+│   │   ├── <page name>/           # Name of Page and its components/containers
+│   │   └── RestPage/              # Files relating directly to that page/route
+│   │   │   └── RestPage.js        # React Component/Container for the page
+│   │   ├── App.js                 # Wrapper for app which adds routers & redux
+│   │   └── routes.js              # All the app routes
+│   ├── config.css                 # CSS variables for be used across the app
+│   ├── configureStore.dev.js      # Store configuation for Dev
+│   ├── configureStore.js          # Chooses the correct config based on node env var
+│   ├── configureStore.prod.js     # Store config for Prod
+│   ├── index.css                  # Global CSS styles (class names left intact)
+│   ├── index.js                   # Application entry point
+│   ├── reducers.js                # Root reducer that combines all other reducers
+│   └── sagas.js                   # Root saga that combines all other sagas
 ├── package.json                # (self explanatory)
 ```
 
-For the project to build, **these files must exist with exact filenames**:
-
-* `public/index.html` is the page template;
-* `src/index.js` is the JavaScript entry point.
-
-You can delete or rename the other files.
-
-You may create subdirectories inside `src`. For faster rebuilds, only files inside `src` are processed by Webpack.<br>
-You need to **put any JS and CSS files inside `src`**, or Webpack won’t see them.
 
 Only files inside `public` can be used from `public/index.html`.<br>
 Read instructions below for using assets from JavaScript and HTML.
-
-You can, however, create more top-level directories.<br>
-They will not be included in the production build so you can use them for things like documentation.
 
 ## Available Scripts
 
@@ -145,58 +168,8 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Displaying Lint Output in the Editor
-
->Note: this feature is available with `react-scripts@0.2.0` and higher.
-
-Some editors, including Sublime Text, Atom, and Visual Studio Code, provide plugins for ESLint.
-
-They are not required for linting. You should see the linter output right in your terminal as well as the browser console. However, if you prefer the lint results to appear right in your editor, there are some extra steps you can do.
-
-You would need to install an ESLint plugin for your editor first.
-
->**A note for Atom `linter-eslint` users**
-
->If you are using the Atom `linter-eslint` plugin, make sure that **Use global ESLint installation** option is checked:
-
-><img src="http://i.imgur.com/yVNNHJM.png" width="300">
-
-Then add this block to the `package.json` file of your project:
-
-```js
-{
-  // ...
-  "eslintConfig": {
-    "extends": "react-app"
-  }
-}
-```
-
-Finally, you will need to install some packages *globally*:
-
-```sh
-npm install -g eslint-config-react-app@0.3.0 eslint@3.8.1 babel-eslint@7.0.0 eslint-plugin-react@6.4.1 eslint-plugin-import@2.0.1 eslint-plugin-jsx-a11y@2.2.3 eslint-plugin-flowtype@2.21.0
-```
-
-We recognize that this is suboptimal, but it is currently required due to the way we hide the ESLint dependency. The ESLint team is already [working on a solution to this](https://github.com/eslint/eslint/issues/3458) so this may become unnecessary in a couple of months.
-
-## Installing a Dependency
-
-The generated project includes React and ReactDOM as dependencies. It also includes a set of scripts used by Create React App as a development dependency. You may install other dependencies (for example, React Router) with `npm`:
-
-```
-npm install --save <library-name>
-```
+## React Basics
 
 ## Importing a Component
 
@@ -249,12 +222,14 @@ Learn more about ES6 modules:
 
 ## Adding a Stylesheet
 
-This project setup uses [Webpack](https://webpack.github.io/) for handling all assets. Webpack offers a custom way of “extending” the concept of `import` beyond JavaScript. To express that a JavaScript file depends on a CSS file, you need to **import the CSS from the JavaScript file**:
+We use [CSS Modules](https://github.com/css-modules/css-modules) for importing stylesheets. It
+will name space all classes so that you will
+never have a conflict. Now you can just name classes whatever is best.
 
 ### `Button.css`
 
 ```css
-.Button {
+.button {
   padding: 20px;
 }
 ```
@@ -263,54 +238,32 @@ This project setup uses [Webpack](https://webpack.github.io/) for handling all a
 
 ```js
 import React, { Component } from 'react';
-import './Button.css'; // Tell Webpack that Button.js uses these styles
+import styles from './Button.css'; // Tell Webpack that Button.js uses these styles
 
 class Button extends Component {
   render() {
-    // You can use them as regular CSS styles
-    return <div className="Button" />;
+    // Then you tell react component what class to use
+    return <div className={styles.button} />;
   }
 }
 ```
 
-**This is not required for React** but many people find this feature convenient. You can read about the benefits of this approach [here](https://medium.com/seek-ui-engineering/block-element-modifying-your-javascript-components-d7f99fcab52b). However you should be aware that this makes your code less portable to other build tools and environments than Webpack.
+More Reading:
+* [What are CSS Modules?](https://css-tricks.com/css-modules-part-1-need/)
+* [CSS Modules: Welcome to the future](https://glenmaddern.com/articles/css-modules)
+* [Modular CSS with React](https://medium.com/@pioul/modular-css-with-react-61638ae9ea3e#.5lghlzj8x)
 
-In development, expressing dependencies this way allows your styles to be reloaded on the fly as you edit them. In production, all CSS files will be concatenated into a single minified `.css` file in the build output.
 
-If you are concerned about using Webpack-specific semantics, you can put all your CSS right into `src/index.css`. It would still be imported from `src/index.js`, but you could always remove that import if you later migrate to a different build tool.
+## PostCSS / cssNext
 
-## Post-Processing CSS
+We use [PostCSS](http://postcss.org/) with the [cssnext](http://cssnext.io/), [imports]
+(https://github.com/postcss/postcss-import) and
+[auto-prefixers](https://autoprefixer.github.io/) plugins.
 
-This project setup minifies your CSS and adds vendor prefixes to it automatically through [Autoprefixer](https://github.com/postcss/autoprefixer) so you don’t need to worry about it.
-
-For example, this:
-
-```css
-.App {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-```
-
-becomes this:
-
-```css
-.App {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-```
-
-There is currently no support for preprocessors such as Less, or for sharing variables across CSS files.
+- PostCss: Allows us to process the CSS before its made into a CSS file using a series of plugins
+- cssnext: Allows us to use css spec features that have not yet been implemented
+- imports: Allows us to import other css files
+- auto-prefix: Auto applies vendor prefixes to your css
 
 ## Adding Images and Fonts
 
@@ -346,14 +299,9 @@ This works in CSS too:
 
 Webpack finds all relative module references in CSS (they start with `./`) and replaces them with the final paths from the compiled bundle. If you make a typo or accidentally delete an important file, you will see a compilation error, just like when you import a non-existent JavaScript module. The final filenames in the compiled bundle are generated by Webpack from content hashes. If the file content changes in the future, Webpack will give it a different name in production so you don’t need to worry about long-term caching of assets.
 
-Please be advised that this is also a custom feature of Webpack.
-
-**It is not required for React** but many people enjoy it (and React Native uses a similar mechanism for images).<br>
 An alternative way of handling static assets is described in the next section.
 
 ## Using the `public` Folder
-
->Note: this feature is available with `react-scripts@0.5.0` and higher.
 
 Normally we encourage you to `import` assets in JavaScript files as described above. This mechanism provides a number of benefits:
 
@@ -394,60 +342,7 @@ Keep in mind the downsides of this approach:
 
 However, it can be handy for referencing assets like [`manifest.webmanifest`](https://developer.mozilla.org/en-US/docs/Web/Manifest) from HTML, or including small scripts like [`pace.js`](http://github.hubspot.com/pace/docs/welcome/) outside of the bundled code.
 
-## Adding Bootstrap
-
-You don’t have to use [React Bootstrap](https://react-bootstrap.github.io) together with React but it is a popular library for integrating Bootstrap with React apps. If you need it, you can integrate it with Create React App by following these steps:
-
-Install React Bootstrap and Bootstrap from NPM. React Bootstrap does not include Bootstrap CSS so this needs to be installed as well:
-
-```
-npm install react-bootstrap --save
-npm install bootstrap@3 --save
-```
-
-Import Bootstrap CSS and optionally Bootstrap theme CSS in the ```src/index.js``` file:
-
-```js
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap-theme.css';
-```
-
-Import required React Bootstrap components within ```src/App.js``` file or your custom component files:
-
-```js
-import { Navbar, Jumbotron, Button } from 'react-bootstrap';
-```
-
-Now you are ready to use the imported React Bootstrap components within your component hierarchy defined in the render method. Here is an example [`App.js`](https://gist.githubusercontent.com/gaearon/85d8c067f6af1e56277c82d19fd4da7b/raw/6158dd991b67284e9fc8d70b9d973efe87659d72/App.js) redone using React Bootstrap.
-
-## Adding Flow
-
-Flow typing is currently [not supported out of the box](https://github.com/facebookincubator/create-react-app/issues/72) with the default `.flowconfig` generated by Flow. If you run it, you might get errors like this:
-
-```js
-node_modules/fbjs/lib/Deferred.js.flow:60
- 60:     Promise.prototype.done.apply(this._promise, arguments);
-                           ^^^^ property `done`. Property not found in
-495: declare class Promise<+R> {
-     ^ Promise. See lib: /private/tmp/flow/flowlib_34952d31/core.js:495
-
-node_modules/fbjs/lib/shallowEqual.js.flow:29
- 29:     return x !== 0 || 1 / (x: $FlowIssue) === 1 / (y: $FlowIssue);
-                                   ^^^^^^^^^^ identifier `$FlowIssue`. Could not resolve name
-```
-
-To fix this, change your `.flowconfig` to look like this:
-
-```ini
-[ignore]
-<PROJECT_ROOT>/node_modules/fbjs/.*
-```
-
-Re-run flow, and you shouldn’t get any extra issues.
-
 ## Adding Custom Environment Variables
-
->Note: this feature is available with `react-scripts@0.2.3` and higher.
 
 Your project can consume variables declared in your environment as if they were declared locally in your JS files. By
 default you will have `NODE_ENV` defined for you, and any other environment variables starting with
@@ -536,64 +431,6 @@ Please refer to the [dotenv documentation](https://github.com/motdotla/dotenv) f
 >Note: If you are defining environment variables for development, your CI and/or hosting platform will most likely need
 these defined as well. Consult their documentation how to do this. For example, see the documentation for [Travis CI](https://docs.travis-ci.com/user/environment-variables/) or [Heroku](https://devcenter.heroku.com/articles/config-vars).
 
-## Can I Use Decorators?
-
-Many popular libraries use [decorators](https://medium.com/google-developers/exploring-es7-decorators-76ecb65fb841) in their documentation.<br>
-Create React App doesn’t support decorator syntax at the moment because:
-
-* It is an experimental proposal and is subject to change.
-* The current specification version is not officially supported by Babel.
-* If the specification changes, we won’t be able to write a codemod because we don’t use them internally at Facebook.
-
-However in many cases you can rewrite decorator-based code without decorators just as fine.<br>
-Please refer to these two threads for reference:
-
-* [#214](https://github.com/facebookincubator/create-react-app/issues/214)
-* [#411](https://github.com/facebookincubator/create-react-app/issues/411)
-
-Create React App will add decorator support when the specification advances to a stable stage.
-
-## Integrating with a Node Backend
-
-Check out [this tutorial](https://www.fullstackreact.com/articles/using-create-react-app-with-a-server/) for instructions on integrating an app with a Node backend running on another port, and using `fetch()` to access it. You can find the companion GitHub repository [here](https://github.com/fullstackreact/food-lookup-demo).
-
-## Proxying API Requests in Development
-
->Note: this feature is available with `react-scripts@0.2.3` and higher.
-
-People often serve the front-end React app from the same host and port as their backend implementation.<br>
-For example, a production setup might look like this after the app is deployed:
-
-```
-/             - static server returns index.html with React app
-/todos        - static server returns index.html with React app
-/api/todos    - server handles any /api/* requests using the backend implementation
-```
-
-Such setup is **not** required. However, if you **do** have a setup like this, it is convenient to write requests like `fetch('/api/todos')` without worrying about redirecting them to another host or port during development.
-
-To tell the development server to proxy any unknown requests to your API server in development, add a `proxy` field to your `package.json`, for example:
-
-```js
-  "proxy": "http://localhost:4000",
-```
-
-This way, when you `fetch('/api/todos')` in development, the development server will recognize that it’s not a static asset, and will proxy your request to `http://localhost:4000/api/todos` as a fallback. The development server will only attempt to send requests without a `text/html` accept header to the proxy.
-
-Conveniently, this avoids [CORS issues](http://stackoverflow.com/questions/21854516/understanding-ajax-cors-and-security-considerations) and error messages like this in development:
-
-```
-Fetch API cannot load http://localhost:4000/api/todos. No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://localhost:3000' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
-```
-
-Keep in mind that `proxy` only has effect in development (with `npm start`), and it is up to you to ensure that URLs like `/api/todos` point to the right thing in production. You don’t have to use the `/api` prefix. Any unrecognized request without a `text/html` accept header will be redirected to the specified `proxy`.
-
-Currently the `proxy` option only handles HTTP requests, and it won’t proxy WebSocket connections.<br>
-If the `proxy` option is **not** flexible enough for you, alternatively you can:
-
-* Enable CORS on your server ([here’s how to do it for Express](http://enable-cors.org/server_expressjs.html)).
-* Use [environment variables](#adding-custom-environment-variables) to inject the right server host and port into your app.
-
 ## Using HTTPS in Development
 
 >Note: this feature is available with `react-scripts@0.4.0` and higher.
@@ -618,26 +455,7 @@ HTTPS=true npm start
 
 Note that the server will use a self-signed certificate, so your web browser will almost definitely display a warning upon accessing the page.
 
-## Generating Dynamic `<meta>` Tags on the Server
-
-Since Create React App doesn’t support server rendering, you might be wondering how to make `<meta>` tags dynamic and reflect the current URL. To solve this, we recommend to add placeholders into the HTML, like this:
-
-```html
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta property="og:title" content="%OG_TITLE%">
-    <meta property="og:description" content="%OG_DESCRIPTION%">
-```
-
-Then, on the server, regardless of the backend you use, you can read `index.html` into memory and replace `%OG_TITLE%`, `%OG_DESCRIPTION%`, and any other placeholders with values depending on the current URL. Just make sure to sanitize and escape the interpolated values so that they are safe to embed into HTML!
-
-If you use a Node server, you can even share the route matching logic between the client and the server. However duplicating it also works fine in simple cases.
-
 ## Running Tests
-
->Note: this feature is available with `react-scripts@0.3.0` and higher.<br>
->[Read the migration guide to learn how to enable it in older projects!](https://github.com/facebookincubator/create-react-app/blob/master/CHANGELOG.md#migrating-from-023-to-030)
 
 Create React App uses [Jest](https://facebook.github.io/jest/) as its test runner. To prepare for this integration, we did a [major revamp](https://facebook.github.io/jest/blog/2016/09/01/jest-15.html) of Jest so if you heard bad things about it years ago, give it another try.
 
@@ -716,10 +534,6 @@ When you encounter bugs caused by changing components, you will gain a deeper in
 
 If you’d like to test components in isolation from the child components they render, we recommend using [`shallow()` rendering API](http://airbnb.io/enzyme/docs/api/shallow.html) from [Enzyme](http://airbnb.io/enzyme/). You can write a smoke test with it too:
 
-```sh
-npm install --save-dev enzyme react-addons-test-utils
-```
-
 ```js
 import React from 'react';
 import { shallow } from 'enzyme';
@@ -752,22 +566,7 @@ it('renders welcome message', () => {
 All Jest matchers are [extensively documented here](http://facebook.github.io/jest/docs/api.html#expect-value).<br>
 Nevertheless you can use a third-party assertion library like [Chai](http://chaijs.com/) if you want to, as described below.
 
-### Using Third Party Assertion Libraries
-
-We recommend that you use `expect()` for assertions and `jest.fn()` for spies. If you are having issues with them please [file those against Jest](https://github.com/facebook/jest/issues/new), and we’ll fix them. We intend to keep making them better for React, supporting, for example, [pretty-printing React elements as JSX](https://github.com/facebook/jest/pull/1566).
-
-However, if you are used to other libraries, such as [Chai](http://chaijs.com/) and [Sinon](http://sinonjs.org/), or if you have existing code using them that you’d like to port over, you can import them normally like this:
-
-```js
-import sinon from 'sinon';
-import { expect } from 'chai';
-```
-
-and then use them in your tests like you normally do.
-
 ### Initializing Test Environment
-
->Note: this feature is available with `react-scripts@0.4.0` and higher.
 
 If your app uses a browser API that you need to mock in your tests or if you just need a global setup before running your tests, add a `src/setupTests.js` to your project. It will be automatically executed before running your tests.
 
@@ -866,129 +665,19 @@ In contrast, **jsdom is not needed** for the following APIs:
 
 Finally, jsdom is also not needed for [snapshot testing](http://facebook.github.io/jest/blog/2016/07/27/jest-14.html). Longer term, this is the direction we are interested in exploring, but snapshot testing is [not fully baked yet](https://github.com/facebookincubator/create-react-app/issues/372) so we don’t officially encourage its usage yet.
 
-### Experimental Snapshot Testing
+### Snapshot Testing
 
 Snapshot testing is a new feature of Jest that automatically generates text snapshots of your components and saves them on the disk so if the UI output changes, you get notified without manually writing any assertions on the component output.
-
-This feature is experimental and still [has major usage issues](https://github.com/facebookincubator/create-react-app/issues/372) so we only encourage you to use it if you like experimental technology. We intend to gradually improve it over time and eventually offer it as the default solution for testing React components, but this will take time. [Read more about snapshot testing.](http://facebook.github.io/jest/blog/2016/07/27/jest-14.html)
 
 ## Deployment
 
 ## Building for Relative Paths
 
-By default, Create React App produces a build assuming your app is hosted at the server root.<br>
+By default, the app produces a build assuming your app is hosted at the server root.<br>
 To override this, specify the `homepage` in your `package.json`, for example:
 
 ```js
   "homepage": "http://mywebsite.com/relativepath",
 ```
 
-This will let Create React App correctly infer the root path to use in the generated HTML file.
-
-### GitHub Pages
-
->Note: this feature is available with `react-scripts@0.2.0` and higher.
-
-Open your `package.json` and add a `homepage` field:
-
-```js
-  "homepage": "http://myusername.github.io/my-app",
-```
-
-**The above step is important!**<br>
-Create React App uses the `homepage` field to determine the root URL in the built HTML file.
-
-Now, whenever you run `npm run build`, you will see a cheat sheet with instructions on how to deploy to GitHub pages.
-
-To publish it at [http://myusername.github.io/my-app](http://myusername.github.io/my-app), run:
-
-```sh
-npm install --save-dev gh-pages
-```
-
-Add the following script in your `package.json`:
-
-```js
-  // ...
-  "scripts": {
-    // ...
-    "deploy": "gh-pages -d build"
-  }
-```
-
-Then run:
-
-```sh
-npm run deploy
-```
-
-Note that GitHub Pages doesn't support routers that use the HTML5 `pushState` history API under the hood (for example, React Router using `browserHistory`). This is because when there is a fresh page load for a url like `http://user.github.io/todomvc/todos/42`, where `/todos/42` is a frontend route, the GitHub Pages server returns 404 because it knows nothing of `/todos/42`. If you want to add a router to a project hosted on GitHub Pages, here are a couple of solutions:
-* You could switch from using HTML5 history API to routing with hashes. If you use React Router, you can switch to `hashHistory` for this effect, but the URL will be longer and more verbose (for example, `http://user.github.io/todomvc/#/todos/42?_k=yknaj`). [Read more](https://github.com/reactjs/react-router/blob/master/docs/guides/Histories.md#histories) about different history implementations in React Router.
-* Alternatively, you can use a trick to teach GitHub Pages to handle 404 by redirecting to your `index.html` page with a special redirect parameter. You would need to add a `404.html` file with the redirection code to the `build` folder before deploying your project, and you’ll need to add code handling the redirect parameter to `index.html`. You can find a detailed explanation of this technique [in this guide](https://github.com/rafrex/spa-github-pages).
-
-### Heroku
-
-Use the [Heroku Buildpack for Create React App](https://github.com/mars/create-react-app-buildpack).<br>
-You can find instructions in [Deploying React with Zero Configuration](https://blog.heroku.com/deploying-react-with-zero-configuration).
-
-### Modulus
-
-See the [Modulus blog post](http://blog.modulus.io/deploying-react-apps-on-modulus) on how to deploy your react app to Modulus.
-
-## Netlify
-
-**To do a manual deploy to Netlify's CDN:**
-
-```sh
-npm install netlify-cli
-netlify deploy
-```
-
-Choose `build` as the path to deploy.
-
-**To setup continuous delivery:**
-
-With this setup Netlify will build and deploy when you push to git or open a pull request:
-
-1. [Start a new netlify project](https://app.netlify.com/signup)
-2. Pick your Git hosting service and select your repository
-3. Click `Build your site`
-
-**Support for client-side routing:**
-
-To support `pushState`, make sure to create a `public/_redirects` file with the following rewrite rules:
-
-```
-/*  /index.html  200
-```
-
-When you build the project, Create React App will place the `public` folder contents into the build output.
-
-### Now
-
-See [this example](https://github.com/xkawi/create-react-app-now) for a zero-configuration single-command deployment with [now](https://zeit.co/now).
-
-### Surge
-
-Install the Surge CLI if you haven't already by running `npm install -g surge`. Run the `surge` command and log in you or create a new account. You just need to specify the *build* folder and your custom domain, and you are done.
-
-```sh
-              email: email@domain.com
-           password: ********
-       project path: /path/to/project/build
-               size: 7 files, 1.8 MB
-             domain: create-react-app.surge.sh
-             upload: [====================] 100%, eta: 0.0s
-   propagate on CDN: [====================] 100%
-               plan: Free
-              users: email@domain.com
-         IP Address: X.X.X.X
-
-    Success! Project is published and running at create-react-app.surge.sh
-```
-
-Note that in order to support routers that use HTML5 `pushState` API, you may want to rename the `index.html` in your build folder to `200.html` before deploying to Surge. This [ensures that every URL falls back to that file](https://surge.sh/help/adding-a-200-page-for-client-side-routing).
-
-## Something Missing?
-
-If you have ideas for more “How To” recipes that should be on this page, [let us know](https://github.com/facebookincubator/create-react-app/issues) or [contribute some!](https://github.com/facebookincubator/create-react-app/edit/master/packages/react-scripts/template/README.md)
+This will let the app correctly infer the root path to use in the generated HTML file.
