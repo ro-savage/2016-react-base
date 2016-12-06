@@ -19,6 +19,7 @@ class PostInput extends React.Component {
   }
 
   handleSave() {
+    console.log('Called handeSave')
     // Create fake post data, as we only enter the title
     const post = {
       title: this.state.inputValue,

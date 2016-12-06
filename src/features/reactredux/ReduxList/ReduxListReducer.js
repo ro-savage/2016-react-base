@@ -1,3 +1,4 @@
+import * as actions from './ReduxListActions'
 
 const reducerState = {
   items: [
@@ -9,7 +10,9 @@ const reducerState = {
 
 const ReduxListReducer = (state = reducerState, action) => {
   switch (action.type) {
-    case 'SAVE':
+    case actions.SAVE_ITEM:
+      // Create new state by 'spreading' the stat object, then over write the items value
+      // with a spread of the current items place that payload items
       return {
         ...state,
         items: [...state.items, action.payload],

@@ -11,16 +11,19 @@ const List = () => (
     <div className={styles.examples}>
       <div className={styles.example}>
         <h3>State in React</h3>
+        <pre>ReactList.js</pre>
         <h4>List</h4>
         <ReactList />
       </div>
       <div className={styles.example}>
         <h3>State in Redux</h3>
+        <pre>ReduxList.js</pre>
         <h4>List</h4>
         <ReduxListContainer />
       </div>
       <div className={styles.example}>
         <h3>State in Redux</h3>
+        <pre>ReduxCounter.js</pre>
         <h4>Counter</h4>
         <ReduxCounterContainer />
       </div>

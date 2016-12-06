@@ -1,7 +1,6 @@
-/* eslint-disable */
-// Disabled ES lint because of one line export not being default
-// rule: import/prefer-default-export
+export const SAVE_ITEM = '@@reduxList/SAVE_ITEM'
+
 export const saveListItem = item => ({
-  type: 'SAVE',
+  type: SAVE_ITEM,
   payload: item,
 })

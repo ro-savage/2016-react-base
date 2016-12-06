@@ -62,7 +62,8 @@
       "describe": false,
       "expect": false,
       "fetch": false,
-      "test": false
+      "test": false,
+      "jest": false
     }
   },
   "devDependencies": {

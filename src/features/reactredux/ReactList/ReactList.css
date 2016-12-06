@@ -1,0 +1,7 @@
+@import "../../../config.css";
+
+.input {
+  border: var(--border-grey) 1px solid;
+  height: 2em;
+  margin: 3px 3px 3px 3px;
+}

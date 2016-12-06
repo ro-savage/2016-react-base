@@ -109,6 +109,8 @@ Suggested reading:
 * [React Fundmentals](https://egghead.io/courses/react-fundamentals) - Free video series
 * [SurviveJS - React](http://survivejs.com/react/introduction/) - Deep dive tutorial on react &
 webpack
+* [JSX In Depth](https://facebook.github.io/react/docs/jsx-in-depth.html) - React is written with
+ JSX, a html like syntax in javascript that is use to create HTML elements.
 
 ### Redux State Managemnet
 Redux is used for state management. It creates a single data store at the top level which is the

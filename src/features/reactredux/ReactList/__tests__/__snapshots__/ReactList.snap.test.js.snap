@@ -13,13 +13,14 @@ exports[`test ReactList changes when new item is added 1`] = `
     </li>
   </ul>
   <input
+    className={undefined}
     onChange={[Function]}
     type="text"
     value="" />
   <button
     className={undefined}
     onClick={[Function]}>
-    Add Items
+    Add Item
   </button>
 </div>
 `;
@@ -42,13 +43,14 @@ exports[`test ReactList changes when new item is added 2`] = `
     </li>
   </ul>
   <input
+    className={undefined}
     onChange={[Function]}
     type="text"
     value="" />
   <button
     className={undefined}
     onClick={[Function]}>
-    Add Items
+    Add Item
   </button>
 </div>
 `;
