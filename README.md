@@ -51,6 +51,19 @@ The page will reload if you make edits.<br>
 Launches the test runner in the interactive watch mode.<br>
 See the section about [running tests](#running-tests) for more information.
 
+### `npm test`
+
+Launches the test runner in the interactive watch mode.<br>
+See the section about [running tests](#running-tests) for more information.
+
+### `npm run testChanges`
+
+As above, but only tests for files that have changed since last commit
+
+### `npm run testCI`
+
+Runs tests in non-interactive mode.
+
 ### `npm run lint`
 
 Runs the javascript linter
@@ -125,7 +138,7 @@ Great deep dive into React/Redux
 * [Building React Applications with Idiomatic Redux](https://egghead.io/courses/building-react-applications-with-idiomatic-redux) - Advanced video course. Highly recommended
 
 ### Handling API calls and other async data
-Redux Saga is used for handling API calls and other async events, and bring the returned values
+[Redux Saga](https://yelouafi.github.io/redux-saga/) is used for handling API calls and other async events, and bring the returned values
 intro redux. Saga's are compliated to gasp. I would suggest just looking at the current code and
 copying/modifying it and wait until you need to do something new to dive deepering into how
 saga's work.
@@ -137,6 +150,24 @@ Suggested reading:
 Deeper dive into Sagas
 * [Async operations using redux-saga](https://medium.freecodecamp
 .com/async-operations-using-redux-saga-2ba02ae077b3#.mcmxsk6i8) - Another dive into redux-saga
+
+### Testing React / Redux
+[Jest](https://facebook.github.io/jest/) and [Enzyme](http://airbnb.io/enzyme/) are used for
+testing. Jest can be run with the command `npm test` and it will run only the the tests/files that
+have changed since the last commit. To tests everything, you need to manually choose run all tests.
+The question of what to test and how much is always a hard one to answer. The policy we use is,
+if it has complexity, test it, if it's simple, don't worry.
+
+
+Suggested reading:
+* [Redux - Writing tests](http://redux.js.org/docs/recipes/WritingTests.html) - Example of how to
+ write tests
+* [Thoughts on react/redux testing](https://medium
+.com/javascript-inside/some-thoughts-on-testing-react-redux-applications-8571fbc1b78f#.c8lp9dfyv)
+ - a good post about hwat should and shouldnt be tested
+Deeper dive into Sagas
+* [Enzyme Docs](http://airbnb.io/enzyme/docs/api/index.html) - Docs on the Enzyme API
+* [Jest Docs](https://facebook.github.io/jest/docs/api.html) - Docs on the Jest API
 
 ### More suggested reading
 There is a lot more to learn, the rest can more-or-less be understood by reading this code base.
@@ -193,14 +224,35 @@ topic, e.g. 'users' or 'transactions'. It also contains all redux logic for each
 │   ├── index.js                   # Application entry point
 │   ├── reducers.js                # Root reducer that combines all other reducers
 │   └── sagas.js                   # Root saga that combines all other sagas
-├── package.json                # (self explanatory)
+├── package.json                   # (self explanatory)
 ```
 
 
 Only files inside `public` can be used from `public/index.html`.<br>
 Read instructions below for using assets from JavaScript and HTML.
 
-## React Basics
+## In-Code Examples
+The are examples throughout the code base of how to implement many of the features that most SPA
+apps will require.
+
+* Simple Stateless React Component
+  * Tests for Stateless Component
+* Stateful React Component
+  * Tests for Stateful Component
+* Connected Component (Data from redux)
+  * Test for Connected Component
+* Redux Reducer
+* Redux Actions
+* Redux Selectors
+* Component that connects to a REST API
+* Fetch for API
+* Handling the REST call in Redux (Redux-saga)
+  * Tests for redux-saga
+* React Routes / Page URLs
+  * Routes behind login
+* Redux Store
+
+## React / Project Basics
 
 ### Importing a Component
 
