@@ -12,7 +12,17 @@ const Menu = () => (
     <Link to="/react-redux">React Redux</Link>
     &nbsp;|&nbsp;
     <Link to="/rest">REST</Link>
+    &nbsp;|&nbsp;
+    {renderLogin()}
   </div>
 )
+
+const renderLogin = () => {
+  if (window.localStorage.authorized) {
+    return <Link to="/login" onClick={() => window.localStorage.removeItem('authorized')}>Logout</Link>
+  }
+
+  return <Link to="/login">Login</Link>
+}
 
 export default Menu

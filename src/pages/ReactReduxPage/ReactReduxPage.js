@@ -7,7 +7,15 @@ import ReduxCounterContainer from '../../features/reactredux/ReduxCounter/ReduxC
 
 const List = () => (
   <div>
-    <h2>List Examples</h2>
+    <h2>State Examples</h2>
+    <div className={styles.intro}>
+      <p>State can be stored locally in a component or globally in redux. Each has a trade off.</p>
+      <p>The general rule is: If only that component (or subcomponents) uses the state,
+        keep it locally (faster).</p>
+      <p>If it will be used across multiple components or need to persist
+        across pages put it in redux (presistant).</p>
+      <a href="http://redux.js.org/docs/faq/OrganizingState.html#organizing-state-only-redux-state">Read more</a>
+    </div>
     <div className={styles.examples}>
       <div className={styles.example}>
         <h3>State in React</h3>

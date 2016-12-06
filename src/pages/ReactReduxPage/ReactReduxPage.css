@@ -6,3 +6,9 @@
     margin: 0 20px;
   }
 }
+
+.intro {
+  width: 600px;
+  margin: auto;
+  text-align: left;
+}

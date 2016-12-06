@@ -10,7 +10,7 @@ class Layout extends React.Component { //eslint-disable-line
   render() {
     return (
       <div className={styles.app}>
-        <Header title={this.props.routes[1].title} />
+        <Header title={this.props.routes[2].title} />
         <div className={styles.content}>
           {this.props.children}
         </div>
